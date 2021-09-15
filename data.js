@@ -6,7 +6,7 @@ mongoose.connect("mongodb://localhost:27017/test")
         )
 const person=mongoose.model('persone',new mongoose.Schema({name:String, birthday:Date}))
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 200; i++) {
     let etudiant=new person({name:faker.fake("{{name.lastName}}"),birthday:faker.fake("{{date.past(80)}}")})
     person.collection.insertOne(etudiant)
             .then(

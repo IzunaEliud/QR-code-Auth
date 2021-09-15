@@ -1,24 +1,20 @@
-mongoose=require("mongoose")
-express=require("express")
-
-app=express()
-
-
-mongoose.connect('mongodb://localhost:27017/test')
-        .then(
-            console.log("connectez\n")
-        )
-const persone=mongoose.model('persones',{name:String,birthday:Date})
-
-app.get("/",async (req,res)=>{
-    try{
-        const data=await persone.find({})
-        res.status(200).send(data[0])
-    }catch{
-        res.status(500).send("Error")
-    }
-})
-
-app.listen(5000,()=>{
-    console.log("connectez au port 5000")
-})
+var stringOne = "freeCodeCamp is the best place to learn"
+var stringTwo = "frontend and backend developement"
+var content='{\n' +
+            '  _id: new ObjectId("61424cd91164032abb3a7679"),\n' +
+            "  name: 'Ortizjsj',\n" +
+            '  birthday: 2009-12-13T03:14:32.000Z\n' +
+            '}'
+var content1=content.split('\n')
+var element=""
+for (let i = 1; i < content1.length; i=i+2) {
+    element += content1[i-1].concat(content1[i]);
+    
+}
+//chartAt
+var s="name:"
+console.log(stringOne.charAt(1))
+console.log(stringTwo.charAt(0))
+console.log(content.indexOf("name:"))
+console.log(content.indexOf("birthday:"))
+console.log(content.slice(content.indexOf("name:")+s.length+2,content.indexOf("birthday:")-5))
